@@ -8,11 +8,11 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100/30">
       {/* Hero Section */}
-      <section className="py-24 px-6">
+      <section className="py-24 px-6 ">
         <div className="max-w-6xl mx-auto text-center">
           <Badge
             variant="secondary"
-            className="mb-6 bg-primary/10 text-primary border-primary/20"
+            className="mb-6 bg-primary/10 mt-10 text-primary border-primary/20"
           >
             Welcome to Suitmedia
           </Badge>
@@ -89,7 +89,7 @@ export default function Home() {
             ].map((service, index) => (
               <Card
                 key={index}
-                className="border-primary/10 bg-gradient-to-br from-white to-orange-50/20 hover:shadow-lg transition-all duration-300 hover:border-primary/20 group text-center"
+                className="border-primary/10 py-5 bg-gradient-to-br from-white to-orange-50/20 hover:shadow-lg transition-all duration-300 hover:border-primary/20 group text-center"
               >
                 <CardHeader>
                   <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -161,26 +161,28 @@ export default function Home() {
               <div className="text-8xl mb-6">🚀</div>
               <div className="grid grid-cols-2 gap-4">
                 <Card className="border-primary/10 bg-white/70 p-4">
-                  <div className="text-2xl font-bold text-primary">100+</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-3xl font-bold text-primary">100+</div>
+                  <div className="-mt-5 text-md text-muted-foreground">
                     Projects Completed
                   </div>
                 </Card>
                 <Card className="border-primary/10 bg-white/70 p-4">
-                  <div className="text-2xl font-bold text-primary">50+</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-3xl font-bold text-primary">50+</div>
+                  <div className="-mt-5 text-md text-muted-foreground">
                     Happy Clients
                   </div>
                 </Card>
                 <Card className="border-primary/10 bg-white/70 p-4">
-                  <div className="text-2xl font-bold text-primary">5+</div>
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-3xl font-bold text-primary">5+</div>
+                  <div className="-mt-5 text-md text-muted-foreground">
                     Years Experience
                   </div>
                 </Card>
                 <Card className="border-primary/10 bg-white/70 p-4">
-                  <div className="text-2xl font-bold text-primary">24/7</div>
-                  <div className="text-sm text-muted-foreground">Support</div>
+                  <div className="text-3xl font-bold text-primary">24/7</div>
+                  <div className="-mt-5 text-md text-muted-foreground">
+                    Support
+                  </div>
                 </Card>
               </div>
             </div>
