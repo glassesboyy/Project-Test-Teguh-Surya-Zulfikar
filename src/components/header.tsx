@@ -129,7 +129,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Menu Fullscreen - OUTSIDE header */}
+      {/* Mobile Menu Fullscreen */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-white z-[9999] overflow-hidden">
           <div className="flex flex-col h-screen w-screen">

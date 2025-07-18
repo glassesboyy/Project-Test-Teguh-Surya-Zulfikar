@@ -23,7 +23,7 @@ export const SORT_OPTIONS = {
   OLDEST_FIRST: "published_at",
 } as const;
 
-// Cache Tags (for Next.js 15 caching)
+// Cache Tags
 export const CACHE_TAGS = {
   IDEAS: "ideas",
   IDEA_DETAIL: "idea-detail",

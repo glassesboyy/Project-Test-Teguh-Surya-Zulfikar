@@ -10,7 +10,7 @@ interface ErrorPageProps {
 
 export default function IdeasError({ error, reset }: ErrorPageProps) {
   useEffect(() => {
-    // Log error untuk monitoring
+    // Log error for monitoring
     console.error("Ideas page error:", error);
   }, [error]);
 

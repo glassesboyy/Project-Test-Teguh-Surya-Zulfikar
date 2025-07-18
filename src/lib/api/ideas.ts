@@ -35,10 +35,8 @@ export async function fetchIdeas(
   try {
     const response = await fetch(url.toString(), {
       // Next.js 15 caching strategy
-      // no-store untuk data yang sering berubah seperti list ideas
+      // no-store for frequently changing data such as list ideas
       cache: "no-store",
-      // Atau gunakan revalidate untuk cache dengan TTL
-      // next: { revalidate: 300 }, // 5 menit
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -122,9 +120,9 @@ export async function fetchIdeaById(id: string): Promise<Idea | null> {
     const response = await fetch(
       `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.IDEAS}/${id}`,
       {
-        // Cache single ideas lebih lama karena jarang berubah
+        // Cache single ideas for longer because they rarely change
         cache: "force-cache",
-        next: { revalidate: 3600 }, // 1 jam
+        next: { revalidate: 3600 },
         headers: {
           Accept: "application/json",
         },

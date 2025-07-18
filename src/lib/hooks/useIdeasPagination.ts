@@ -95,12 +95,12 @@ export function useIdeasPagination({
 
   const handlePageSizeChange = useCallback((newSize: string) => {
     setPageSizeState(newSize);
-    setCurrentPageState(1); // Reset to first page when changing page size
+    setCurrentPageState(1);
   }, []);
 
   const handleSortChange = useCallback((newSort: string) => {
     setSortOrderState(newSort);
-    setCurrentPageState(1); // Reset to first page when changing sort
+    setCurrentPageState(1);
   }, []);
 
   return {

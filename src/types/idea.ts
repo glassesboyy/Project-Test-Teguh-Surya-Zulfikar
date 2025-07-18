@@ -1,5 +1,3 @@
-// src/types/idea.ts
-
 export interface ImageItem {
   id: number;
   mime: string;
