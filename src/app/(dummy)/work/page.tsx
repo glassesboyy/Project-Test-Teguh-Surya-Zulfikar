@@ -410,7 +410,7 @@ export default function WorkPage() {
                     ))}
                   </div>
                   <p className="text-muted-foreground mb-6 leading-relaxed italic">
-                    "{testimonial.quote}"
+                    &quot;{testimonial.quote}&quot;
                   </p>
                   <div>
                     <p className="font-semibold text-foreground">
@@ -434,8 +434,8 @@ export default function WorkPage() {
             Ready for Your Next Project?
           </h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Let's discuss how we can create a digital solution that drives real
-            results for your business.
+            Let&apos;s discuss how we can create a digital solution that drives
+            real results for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

@@ -31,7 +31,7 @@ export default function ContactPage() {
       {/* Hero Section */}
       <HeroSection
         title="Contact"
-        description="Ready to transform your digital presence? We'd love to discuss your project and explore how we can bring your vision to life."
+        description="Ready to transform your digital presence? We&#39;d love to discuss your project and explore how we can bring your vision to life."
         backgroundImage="/bg-contact.jpg"
       />
 
@@ -52,8 +52,8 @@ export default function ContactPage() {
                   Start Your Project
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Fill out the form below and we'll get back to you within 24
-                  hours.
+                  Fill out the form below and we&#39;ll get back to you within
+                  24 hours.
                 </p>
               </div>
 
@@ -127,7 +127,7 @@ export default function ContactPage() {
                         <option>$10,000 - $25,000</option>
                         <option>$25,000 - $50,000</option>
                         <option>$50,000+</option>
-                        <option>Let's discuss</option>
+                        <option>Let&apos;s discuss</option>
                       </select>
                     </div>
 
@@ -164,10 +164,11 @@ export default function ContactPage() {
                   Contact Information
                 </Badge>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                  Let's Talk
+                  Let&#39;s Talk
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  Have questions? We're here to help and answer any questions
+                  Have questions? We&#39;re here to help and answer any
+                  questions
                 </p>
               </div>
 
@@ -282,8 +283,8 @@ export default function ContactPage() {
               <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 Project timelines vary depending on scope and complexity. Simple
                 websites typically take 4-6 weeks, while complex applications
-                can take 3-6 months. We'll provide a detailed timeline during
-                our initial consultation.
+                can take 3-6 months. We&#39;ll provide a detailed timeline
+                during our initial consultation.
               </AccordionContent>
             </AccordionItem>
 
@@ -307,7 +308,7 @@ export default function ContactPage() {
               className="border border-primary/10 rounded-lg px-6 bg-white/70 hover:bg-white transition-colors"
             >
               <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary transition-colors">
-                What's included in your web development service?
+                What&#39;s included in your web development service?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
                 Our web development includes design, development, testing,
@@ -353,10 +354,10 @@ export default function ContactPage() {
                 How do you handle project communication?
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
-                We believe in transparent communication. You'll have a dedicated
-                project manager, regular progress updates, and access to our
-                project management tools. We're always available for questions
-                and feedback.
+                We believe in transparent communication. You&#39;ll have a
+                dedicated project manager, regular progress updates, and access
+                to our project management tools. We&#39;re always available for
+                questions and feedback.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -370,8 +371,8 @@ export default function ContactPage() {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Don't wait any longer. Contact us today and let's discuss how we can
-            help transform your digital presence.
+            Don&apos;t wait any longer. Contact us today and let&apos;s discuss
+            how we can help transform your digital presence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

@@ -197,8 +197,9 @@ export default function Home() {
             Ready to Start Your Project?
           </h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Let's bring your digital vision to life. Contact us today to discuss
-            your project and discover how we can help your business grow.
+            Let&apos;s bring your digital vision to life. Contact us today to
+            discuss your project and discover how we can help your business
+            grow.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">

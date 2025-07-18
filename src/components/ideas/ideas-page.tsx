@@ -29,10 +29,6 @@ export default function IdeasPage({ initialIdeas, total }: Props) {
     setCurrentPage,
     setPageSize,
     setSortOrder,
-    goToNextPage,
-    goToPreviousPage,
-    canGoNext,
-    canGoPrevious,
   } = useIdeasPagination({
     initialIdeas,
     total,

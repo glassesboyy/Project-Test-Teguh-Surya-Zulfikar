@@ -31,7 +31,6 @@ export default function HeroSection({
   useEffect(() => {
     const handleScroll = () => {
       if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
         const scrolled = window.scrollY;
         const rate = scrolled * 0.5;
         setOffsetY(rate);

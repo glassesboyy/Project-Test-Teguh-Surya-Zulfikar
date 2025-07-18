@@ -44,8 +44,8 @@ export default function AboutPage() {
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 At Suitmedia, we believe in the power of technology to transform
                 businesses and create meaningful connections. Our mission is to
-                craft digital solutions that not only meet today's needs but
-                also anticipate tomorrow's challenges.
+                craft digital solutions that not only meet today&apos;s needs
+                but also anticipate tomorrow&apos;s challenges.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 We combine strategic thinking, creative design, and cutting-edge
@@ -277,8 +277,8 @@ export default function AboutPage() {
             Ready to Work Together?
           </h2>
           <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Let's turn your ideas into reality. Contact us today to start your
-            digital transformation journey.
+            Let&apos;s turn your ideas into reality. Contact us today to start
+            your digital transformation journey.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

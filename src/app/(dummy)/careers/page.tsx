@@ -302,8 +302,8 @@ export default function CareersPage() {
               Ready to Start Your Journey?
             </h2>
             <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-              Don't see a position that fits? Send us your resume anyway - we're
-              always looking for exceptional talent.
+              Don&apos;t see a position that fits? Send us your resume anyway -
+              we&apos;re always looking for exceptional talent.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
