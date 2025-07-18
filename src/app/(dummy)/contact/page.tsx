@@ -13,13 +13,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us - Suitmedia",
+  title: "Contact Us | Suitmedia - Zul",
   description:
     "Get in touch with Suitmedia for your next digital project. Contact our team for inquiries, collaborations, or consultations.",
   keywords:
     "contact suitmedia, get in touch, digital agency contact, project inquiry",
   openGraph: {
-    title: "Contact Us - Suitmedia",
+    title: "Contact Us | Suitmedia",
     description: "Get in touch with Suitmedia for your next digital project.",
     type: "website",
   },

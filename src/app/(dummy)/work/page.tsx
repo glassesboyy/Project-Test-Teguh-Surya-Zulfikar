@@ -5,13 +5,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Our Work - Suitmedia",
+  title: "Our Work | Suitmedia - Zul",
   description:
     "Explore Suitmedia's portfolio of successful digital projects, from web applications to mobile apps and UI/UX designs.",
   keywords:
     "portfolio, case studies, web development projects, mobile apps, UI/UX design, suitmedia work",
   openGraph: {
-    title: "Our Work - Suitmedia",
+    title: "Our Work | Suitmedia",
     description:
       "Discover our successful digital projects and creative solutions.",
     type: "website",

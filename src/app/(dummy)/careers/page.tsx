@@ -6,12 +6,12 @@ import { Separator } from "@/components/ui/separator";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Careers - Suitmedia",
+  title: "Careers | Suitmedia - Zul",
   description:
     "Join our dynamic team at Suitmedia! Explore exciting career opportunities and grow your skills in a collaborative environment.",
   keywords: "careers, jobs, suitmedia, hiring, team, opportunities",
   openGraph: {
-    title: "Careers - Suitmedia",
+    title: "Careers | Suitmedia",
     description: "Join our dynamic team at Suitmedia!",
     type: "website",
   },
