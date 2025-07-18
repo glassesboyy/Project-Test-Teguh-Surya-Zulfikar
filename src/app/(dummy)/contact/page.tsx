@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100/30">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
         title="Contact"

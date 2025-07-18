@@ -53,7 +53,7 @@ export default function IdeasPage({ initialIdeas, total }: Props) {
   }, [currentPage, pageSize, sortOrder, router]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100/30">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
         title="Ideas"

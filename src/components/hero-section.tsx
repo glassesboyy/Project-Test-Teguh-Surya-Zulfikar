@@ -33,7 +33,7 @@ export default function HeroSection({
       if (sectionRef.current) {
         const rect = sectionRef.current.getBoundingClientRect();
         const scrolled = window.scrollY;
-        const rate = scrolled * -0.5; // Parallax speed
+        const rate = scrolled * 0.5;
         setOffsetY(rate);
       }
     };
@@ -59,13 +59,16 @@ export default function HeroSection({
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-black/20" />
 
-      {/* CSS-only Cutting Effect */}
+      {/* CSS-only Cutting Effect with Parallax */}
       <div className="absolute inset-0">
-        {/* Bottom diagonal cut */}
+        {/* Bottom diagonal cut with parallax effect */}
         <div
-          className="absolute bottom-0 right-0 w-full h-1/5 bg-white"
+          className="absolute bottom-0 right-0 w-full h-1/4 bg-white will-change-transform transition-transform duration-75"
           style={{
             clipPath: "polygon(100% 0, 100% 20%, 100% 100%, 0 100%)",
+            transform: `translateY(${offsetY * 0.3}px) translateX(${
+              offsetY * 0.1
+            }px)`,
           }}
         />
       </div>
@@ -74,7 +77,7 @@ export default function HeroSection({
       <div
         className="relative z-10 flex items-center justify-center h-full px-6"
         style={{
-          transform: `translateY(${offsetY * 0.2}px)`, // Text moves slower than background
+          transform: `translateY(${offsetY * -1}px)`,
         }}
       >
         <div className="text-center max-w-4xl mx-auto">
