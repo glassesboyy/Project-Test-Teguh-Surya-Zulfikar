@@ -1,4 +1,7 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { useEffect, useRef, useState } from "react";
 
 interface HeroSectionProps {
   title: string;
@@ -22,13 +25,39 @@ export default function HeroSection({
   buttons,
   backgroundImage = "/bg-ideas.jpg",
 }: HeroSectionProps) {
+  const [offsetY, setOffsetY] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const scrolled = window.scrollY;
+        const rate = scrolled * -0.5; // Parallax speed
+        setOffsetY(rate);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="relative h-[500px] overflow-hidden bg-gradient-to-br from-orange-100 to-orange-50">
-      {/* Background Image */}
+    <section
+      ref={sectionRef}
+      className="relative h-[500px] overflow-hidden bg-gradient-to-br from-orange-100 to-orange-50"
+    >
+      {/* Background Image with Parallax */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          transform: `translateY(${offsetY}px)`,
+        }}
       />
+
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/20" />
 
       {/* CSS-only Cutting Effect */}
       <div className="absolute inset-0">
@@ -41,8 +70,13 @@ export default function HeroSection({
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full px-6">
+      {/* Content with subtle parallax */}
+      <div
+        className="relative z-10 flex items-center justify-center h-full px-6"
+        style={{
+          transform: `translateY(${offsetY * 0.2}px)`, // Text moves slower than background
+        }}
+      >
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl tracking-tight">
             {title}

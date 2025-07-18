@@ -87,7 +87,7 @@ export default function IdeaDetailPage({ params }: IdeaDetailPageProps) {
             Ide yang Anda cari tidak dapat ditemukan atau terjadi kesalahan.
           </p>
           <Button onClick={() => router.back()} variant="outline">
-            Kembali ke Daftar Ide
+            Kembali
           </Button>
         </div>
       </div>
@@ -101,9 +101,9 @@ export default function IdeaDetailPage({ params }: IdeaDetailPageProps) {
           <Button
             onClick={() => router.back()}
             variant="outline"
-            className="mb-6 border-primary/20 text-primary hover:bg-primary/5"
+            className="mb-6 mt-6 border-primary/20 text-primary hover:bg-primary/5"
           >
-            ← Kembali ke daftar ide
+            Kembali
           </Button>
 
           <div className="mb-4">

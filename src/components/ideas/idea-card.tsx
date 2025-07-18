@@ -81,7 +81,7 @@ export default function IdeaCard({ idea }: Props) {
         </div>
 
         <CardHeader>
-          <h3 className="-mt-3 font-semibold text-lg leading-tight line-clamp-2 group-hover:text-primary transition-colors duration-200">
+          <h3 className="-mt-3 font-semibold text-lg leading-tight line-clamp-3 group-hover:text-primary transition-colors duration-200 h-[4.5rem] overflow-hidden">
             {idea.title}
           </h3>
         </CardHeader>

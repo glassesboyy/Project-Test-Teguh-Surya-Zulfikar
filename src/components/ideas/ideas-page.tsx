@@ -5,6 +5,8 @@ import { AdvancedPagination } from "@/components/ui/pagination";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useIdeasPagination } from "@/lib/hooks/useIdeasPagination";
 import { Idea } from "@/types/idea";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import IdeaCard from "./idea-card";
 import IdeasFilter from "./ideas-filter";
 
@@ -14,6 +16,9 @@ type Props = {
 };
 
 export default function IdeasPage({ initialIdeas, total }: Props) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const {
     currentPage,
     pageSize,
@@ -28,7 +33,24 @@ export default function IdeasPage({ initialIdeas, total }: Props) {
     goToPreviousPage,
     canGoNext,
     canGoPrevious,
-  } = useIdeasPagination({ initialIdeas, total });
+  } = useIdeasPagination({
+    initialIdeas,
+    total,
+    initialPage: parseInt(searchParams.get("page") || "1"),
+    initialPageSize: searchParams.get("pageSize") || "10",
+    initialSort: searchParams.get("sort") || "-published_at",
+  });
+
+  // Update URL when state changes
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.set("page", currentPage.toString());
+    params.set("pageSize", pageSize);
+    params.set("sort", sortOrder);
+
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    router.replace(newUrl, { scroll: false });
+  }, [currentPage, pageSize, sortOrder, router]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-orange-100/30">
@@ -47,6 +69,7 @@ export default function IdeasPage({ initialIdeas, total }: Props) {
             sort={sortOrder}
             setSort={setSortOrder}
             total={total}
+            currentPage={currentPage}
           />
         </div>
 

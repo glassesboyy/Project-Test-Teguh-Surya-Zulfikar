@@ -5,6 +5,9 @@ import { useCallback, useMemo, useState } from "react";
 export interface UseIdeasPaginationProps {
   initialIdeas: Idea[];
   total: number;
+  initialPage?: number;
+  initialPageSize?: string;
+  initialSort?: string;
 }
 
 export interface UseIdeasPaginationReturn {
@@ -36,17 +39,14 @@ export interface UseIdeasPaginationReturn {
 export function useIdeasPagination({
   initialIdeas,
   total,
+  initialPage = PAGINATION.DEFAULT_PAGE,
+  initialPageSize = PAGINATION.DEFAULT_CLIENT_PAGE_SIZE.toString(),
+  initialSort = SORT_OPTIONS.NEWEST_FIRST,
 }: UseIdeasPaginationProps): UseIdeasPaginationReturn {
   const [ideas] = useState<Idea[]>(initialIdeas);
-  const [currentPage, setCurrentPageState] = useState<number>(
-    PAGINATION.DEFAULT_PAGE
-  );
-  const [pageSize, setPageSizeState] = useState<string>(
-    PAGINATION.DEFAULT_CLIENT_PAGE_SIZE.toString()
-  );
-  const [sortOrder, setSortOrderState] = useState<string>(
-    SORT_OPTIONS.NEWEST_FIRST
-  );
+  const [currentPage, setCurrentPageState] = useState<number>(initialPage);
+  const [pageSize, setPageSizeState] = useState<string>(initialPageSize);
+  const [sortOrder, setSortOrderState] = useState<string>(initialSort);
   const [loading] = useState<boolean>(false);
 
   // Computed values

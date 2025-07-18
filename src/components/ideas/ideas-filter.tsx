@@ -16,6 +16,7 @@ type IdeasFilterProps = {
   sort: string;
   setSort: (value: string) => void;
   total: number;
+  currentPage?: number;
 };
 
 export default function IdeasFilter({
@@ -24,10 +25,12 @@ export default function IdeasFilter({
   sort,
   setSort,
   total,
+  currentPage = 1,
 }: IdeasFilterProps) {
-  // Calculate display range
-  const start = 1;
-  const end = Math.min(Number(pageSize), total);
+  // Calculate display range correctly based on current page and page size
+  const pageSizeNum = Number(pageSize);
+  const start = (currentPage - 1) * pageSizeNum + 1;
+  const end = Math.min(currentPage * pageSizeNum, total);
 
   return (
     <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
