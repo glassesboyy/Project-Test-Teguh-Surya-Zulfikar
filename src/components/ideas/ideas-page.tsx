@@ -6,7 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useIdeasPagination } from "@/lib/hooks/useIdeasPagination";
 import { Idea } from "@/types/idea";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import IdeaCard from "./idea-card";
 import IdeasFilter from "./ideas-filter";
 
@@ -18,6 +18,7 @@ type Props = {
 export default function IdeasPage({ initialIdeas, total }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const {
     currentPage,
@@ -48,12 +49,36 @@ export default function IdeasPage({ initialIdeas, total }: Props) {
     router.replace(newUrl, { scroll: false });
   }, [currentPage, pageSize, sortOrder, router]);
 
+  // Intersection Observer for better performance
+  useEffect(() => {
+    if (!gridRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "50px",
+      }
+    );
+
+    const cards = gridRef.current.querySelectorAll(".idea-card");
+    cards.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, [paginatedIdeas]);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <HeroSection
         title="Ideas"
-        description="Discover creative thoughts and industry perspectives from our team of digital innovators and creative professionals."
+        description="Where all our great things begin"
       />
 
       <div className="max-w-7xl mx-auto px-6 py-12 relative z-20">
@@ -72,7 +97,7 @@ export default function IdeasPage({ initialIdeas, total }: Props) {
         {/* Ideas Grid */}
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {[...Array(8)].map((_, i) => (
+            {[...Array(parseInt(pageSize))].map((_, i) => (
               <div key={i} className="space-y-4">
                 <Skeleton className="h-[240px] w-full rounded-xl" />
                 <Skeleton className="h-4 w-3/4" />
@@ -81,9 +106,20 @@ export default function IdeasPage({ initialIdeas, total }: Props) {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {paginatedIdeas.map((idea) => (
-              <IdeaCard key={idea.id} idea={idea} />
+          <div
+            ref={gridRef}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          >
+            {paginatedIdeas.map((idea, index) => (
+              <div
+                key={idea.id}
+                className="idea-card opacity-0 translate-y-8 transition-all duration-500"
+                style={{
+                  transitionDelay: `${index * 100}ms`,
+                }}
+              >
+                <IdeaCard idea={idea} />
+              </div>
             ))}
           </div>
         )}
@@ -102,6 +138,13 @@ export default function IdeasPage({ initialIdeas, total }: Props) {
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        .animate-in {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+        }
+      `}</style>
     </div>
   );
 }

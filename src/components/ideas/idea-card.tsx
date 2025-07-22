@@ -14,6 +14,7 @@ type Props = {
 
 export default function IdeaCard({ idea }: Props) {
   const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const publishDate = new Date(idea.published_at).toLocaleDateString("id-ID", {
     day: "numeric",
@@ -30,6 +31,11 @@ export default function IdeaCard({ idea }: Props) {
     return placeholders[Math.floor(Math.random() * placeholders.length)];
   };
 
+  const imageUrl =
+    !imageError && idea.medium_image[0]?.url
+      ? idea.medium_image[0].url
+      : getPlaceholderImage();
+
   return (
     <Link
       href={`/ideas/${idea.id}`}
@@ -38,30 +44,33 @@ export default function IdeaCard({ idea }: Props) {
       className="group block"
     >
       <Card className="h-full bg-white/90 backdrop-blur-sm border-border/40 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 overflow-hidden">
-        {/* Image Container */}
+        {/* Image Container with Lazy Loading */}
         <div className="relative h-48 overflow-hidden bg-gray-100">
-          {!imageError && idea.medium_image[0]?.url ? (
-            <Image
-              src={idea.medium_image[0].url}
-              alt={idea.title}
-              width={400}
-              height={250}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              priority={false}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-              onError={() => setImageError(true)}
-            />
-          ) : (
-            <Image
-              src={getPlaceholderImage()}
-              alt={idea.title}
-              width={400}
-              height={250}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              priority={false}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-            />
+          {/* Loading placeholder */}
+          {!imageLoaded && (
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-pulse" />
           )}
+
+          <Image
+            src={imageUrl}
+            alt={idea.title}
+            width={400}
+            height={250}
+            className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-110 ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
+            loading="lazy"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            onLoad={() => setImageLoaded(true)}
+            onError={() => {
+              setImageError(true);
+              setImageLoaded(true);
+            }}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            quality={85}
+          />
+
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
           {/* Arrow Icon */}
@@ -76,12 +85,12 @@ export default function IdeaCard({ idea }: Props) {
         <div className="px-6">
           <div className="flex items-center gap-1 text-xs text-muted-foreground">
             <CalendarDays className="w-3 h-3" />
-            <span>{publishDate}</span>
+            <span className="uppercase">{publishDate}</span>
           </div>
         </div>
 
         <CardHeader>
-          <h3 className="-mt-3 font-semibold text-lg leading-tight line-clamp-3 group-hover:text-primary transition-colors duration-200 h-[4.5rem] overflow-hidden">
+          <h3 className="-mt-4 font-semibold text-lg leading-tight line-clamp-3 group-hover:text-primary transition-colors duration-200 h-[4.5rem] overflow-hidden">
             {idea.title}
           </h3>
         </CardHeader>

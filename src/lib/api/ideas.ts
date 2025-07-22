@@ -35,12 +35,12 @@ export async function fetchIdeas(
   try {
     const response = await fetch(url.toString(), {
       // Next.js 15 caching strategy
-      // no-store for frequently changing data such as list ideas
       cache: "no-store",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      priority: "high",
     });
 
     if (!response.ok) {

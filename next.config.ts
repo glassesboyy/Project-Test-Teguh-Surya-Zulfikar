@@ -16,7 +16,13 @@ const nextConfig: NextConfig = {
     ],
     // Optimize images untuk performance
     formats: ["image/webp", "image/avif"],
-    minimumCacheTTL: 3600, // 1 hour
+    minimumCacheTTL: 3600,
+    // Enable lazy loading by default
+    dangerouslyAllowSVG: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    // Image sizes for better lazy loading
+    deviceSizes: [640, 768, 1024, 1280, 1600],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
   // API rewrites (opsional - bisa digunakan jika ingin proxy API)
@@ -31,13 +37,12 @@ const nextConfig: NextConfig = {
 
   // Experimental features untuk Next.js 15
   experimental: {
-    // Optimized untuk app router
     optimizePackageImports: ["react-scroll-parallax"],
+    optimizeCss: true,
   },
 
   // Compiler optimizations
   compiler: {
-    // Remove console logs di production
     removeConsole: process.env.NODE_ENV === "production",
   },
 };

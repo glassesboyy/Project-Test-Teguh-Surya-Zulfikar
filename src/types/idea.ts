@@ -3,6 +3,8 @@ export interface ImageItem {
   mime: string;
   file_name: string;
   url: string;
+  width?: number;
+  height?: number;
 }
 
 export interface Idea {
