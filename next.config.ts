@@ -35,6 +35,10 @@ const nextConfig: NextConfig = {
     ];
   },
 
+  experimental: {
+    // Optimized untuk app router
+    optimizePackageImports: ["react-scroll-parallax"],
+  },
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
