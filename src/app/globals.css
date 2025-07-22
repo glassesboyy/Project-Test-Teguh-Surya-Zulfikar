@@ -2,13 +2,13 @@
 @import "tw-animate-css";
 
 /* Custom utilities for text clamping */
-.line-clamp-3 {
+/* .line-clamp-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-}
+} */
 
 @custom-variant dark (&:is(.dark *));
 
@@ -54,38 +54,29 @@
 
 :root {
   --radius: 0.75rem;
-  /* Orange & White Color Scheme - Enhanced */
-  --background: oklch(1 0 0); /* Pure white */
-  --foreground: oklch(0.15 0 0); /* Dark text */
-  --card: oklch(0.99 0.005 45); /* Slightly warm white cards */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(0.99 0.005 45);
   --card-foreground: oklch(0.15 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.15 0 0);
-  /* Modern Orange as Primary */
-  --primary: oklch(0.62 0.2 35); /* Modern vibrant orange */
-  --primary-foreground: oklch(0.98 0 0); /* Crisp white text on orange */
-  /* Warm secondary colors */
-  --secondary: oklch(0.97 0.02 35); /* Very light warm orange */
+  --primary: oklch(0.62 0.2 35);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.97 0.02 35);
   --secondary-foreground: oklch(0.2 0 0);
-  /* Warm muted colors */
   --muted: oklch(0.97 0.008 35);
   --muted-foreground: oklch(0.48 0.015 35);
-  /* Warm accent */
-  --accent: oklch(0.94 0.03 35); /* Light warm accent */
+  --accent: oklch(0.94 0.03 35);
   --accent-foreground: oklch(0.2 0 0);
-  /* Destructive remains red but warmer */
   --destructive: oklch(0.58 0.24 25);
-  /* Warm borders and inputs */
   --border: oklch(0.92 0.015 35);
   --input: oklch(0.96 0.01 35);
-  --ring: oklch(0.62 0.2 35); /* Orange ring matching primary */
-  /* Enhanced chart colors with warm orange theme */
-  --chart-1: oklch(0.62 0.2 35); /* Primary orange */
-  --chart-2: oklch(0.55 0.18 25); /* Red-orange */
-  --chart-3: oklch(0.68 0.15 55); /* Yellow-orange */
-  --chart-4: oklch(0.58 0.22 45); /* Bright orange */
-  --chart-5: oklch(0.65 0.16 60); /* Orange-yellow */
-  /* Warm sidebar theme */
+  --ring: oklch(0.62 0.2 35);
+  --chart-1: oklch(0.62 0.2 35);
+  --chart-2: oklch(0.55 0.18 25);
+  --chart-3: oklch(0.68 0.15 55);
+  --chart-4: oklch(0.58 0.22 45);
+  --chart-5: oklch(0.65 0.16 60);
   --sidebar: oklch(0.98 0.008 35);
   --sidebar-foreground: oklch(0.18 0 0);
   --sidebar-primary: oklch(0.62 0.2 35);
@@ -97,38 +88,29 @@
 }
 
 .dark {
-  /* Dark theme with warm orange accents */
-  --background: oklch(0.08 0.005 35); /* Very dark warm background */
-  --foreground: oklch(0.96 0 0); /* Crisp light text */
-  --card: oklch(0.12 0.008 35); /* Dark warm cards */
+  --background: oklch(0.08 0.005 35);
+  --foreground: oklch(0.96 0 0);
+  --card: oklch(0.12 0.008 35);
   --card-foreground: oklch(0.96 0 0);
   --popover: oklch(0.12 0.008 35);
   --popover-foreground: oklch(0.96 0 0);
-  /* Enhanced orange for dark theme */
-  --primary: oklch(0.68 0.22 35); /* Brighter warm orange for contrast */
-  --primary-foreground: oklch(0.08 0 0); /* Dark text on orange */
-  /* Dark secondary with warm orange tint */
+  --primary: oklch(0.68 0.22 35);
+  --primary-foreground: oklch(0.08 0 0);
   --secondary: oklch(0.18 0.015 35);
   --secondary-foreground: oklch(0.92 0 0);
-  /* Dark muted with subtle warm undertone */
   --muted: oklch(0.18 0.01 35);
   --muted-foreground: oklch(0.58 0.02 35);
-  /* Dark warm accent */
   --accent: oklch(0.22 0.02 35);
   --accent-foreground: oklch(0.92 0 0);
-  /* Destructive for dark theme */
   --destructive: oklch(0.68 0.26 25);
-  /* Dark borders with warm orange tint */
   --border: oklch(0.22 0.015 35);
   --input: oklch(0.2 0.015 35);
-  --ring: oklch(0.68 0.22 35); /* Bright warm orange ring */
-  /* Dark theme chart colors */
+  --ring: oklch(0.68 0.22 35);
   --chart-1: oklch(0.68 0.22 35);
   --chart-2: oklch(0.62 0.2 25);
   --chart-3: oklch(0.72 0.18 55);
   --chart-4: oklch(0.65 0.24 45);
   --chart-5: oklch(0.7 0.2 60);
-  /* Dark warm sidebar */
   --sidebar: oklch(0.1 0.008 35);
   --sidebar-foreground: oklch(0.92 0 0);
   --sidebar-primary: oklch(0.68 0.22 35);
