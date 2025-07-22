@@ -35,12 +35,6 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // Experimental features untuk Next.js 15
-  experimental: {
-    optimizePackageImports: ["react-scroll-parallax"],
-    optimizeCss: true,
-  },
-
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
