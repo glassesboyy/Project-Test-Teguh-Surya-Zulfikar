@@ -50,7 +50,7 @@ export default function AboutPage() {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 We combine strategic thinking, creative design, and cutting-edge
                 technology to deliver experiences that drive growth, engagement,
-                and success for our clients.
+                and success for our clients, no matter their industry or size.
               </p>
             </div>
 
